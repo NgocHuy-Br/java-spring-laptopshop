@@ -35,16 +35,23 @@ public class UserController {
 
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
+        List<User> users = this.userService.getAllUser();
+        model.addAttribute("user1", users);
+        System.out.println("User: " + users);
+        return "admin/user/table-user";
+    }
+
+    @RequestMapping("/admin/user/create") // default GET
+    public String getCreateUserPage(Model model) {
         // String test = this.userService.handleHello();
         model.addAttribute("newUser", new User());
         return "admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
-        System.out.println("run here" + hoidanit);
         this.userService.handleSaveUser(hoidanit);
-        return "hello";
+        return "redirect:/admin/user";
     }
 
 }
