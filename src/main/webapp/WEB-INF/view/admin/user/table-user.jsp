@@ -27,6 +27,7 @@
                             <h3>Table User</h3>
 
                             <a href="admin/user/create" class="btn btn-primary">Create a user</a>
+
                         </div>
 
                         <hr />
@@ -48,8 +49,11 @@
 
                                         <td>
                                             <a href="/admin/user/${user.id}" class="btn btn-success">View</a>
-                                            <button class="btn btn-warning mx-2">Update</button>
-                                            <button class="btn btn-danger">Delete</button>
+                                            <a href="/admin/user/update/${user.id}"
+                                                class="btn btn-warning mx-2">Update</a>
+                                            <a href="/admin/user/delete/${user.id}"
+                                                class="btn btn-danger mx-2">Delete</a>
+
                                         </td>
                                     </tr>
                                 </c:forEach>
